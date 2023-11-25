@@ -16,7 +16,7 @@ import java.io.*;
        //Ciclo infinito per inserimento testo del Client 
        while (true) 
 	{ 
-         System.out.print("Inserisci: "); 
+         System.out.print("Inserisci un numero: ");
          String userInput = stdIn.readLine(); 
          if (userInput.equals("QUIT")) 
 		break; 

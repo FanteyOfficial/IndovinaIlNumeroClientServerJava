@@ -5,9 +5,12 @@ import java.io.*;
    //Creazione di una classe per il Multrithreading
    class ServerThread extends Thread {
      private Socket socket;
+     private Partita p;
      public ServerThread (Socket socket) {
        this.socket = socket;
        System.out.println("  Stato    Tipo Richiesta  Porta Server  Porta Client  Indirizzo Cliernt\n");
+
+       p = new Partita();
      }
 
      //esecuzione del Thread sul Socket
@@ -23,6 +26,18 @@ import java.io.*;
            System.out.println("Il Client "+ socket.getInetAddress() +" "
             + socket.getPort() +" "
             + socket.getLocalPort() +" ha scritto: " + userInput);
+           try {
+             if (p.checkVictory(Integer.parseInt(userInput))) {
+               System.out.println("Hai indovinato il numero!");
+               break;
+             }
+             else {
+               System.out.println("Ritenta!");
+             }
+           }
+           catch (Exception e) {
+             System.out.println("Numero non valido!");
+           }
          }
          os.close();
          is.close();
