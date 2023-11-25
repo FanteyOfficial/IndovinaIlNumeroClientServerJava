@@ -28,15 +28,15 @@ import java.io.*;
             + socket.getLocalPort() +" ha scritto: " + userInput);
            try {
              if (p.checkVictory(Integer.parseInt(userInput))) {
-               System.out.println("Hai indovinato il numero!");
+               os.writeBytes("Hai indovinato il numero!");
                break;
              }
              else {
-               System.out.println("Ritenta!");
+               os.writeBytes("\nRitenta!\n");
              }
            }
            catch (Exception e) {
-             System.out.println("Numero non valido!");
+             os.writeBytes("Numero non valido!");
            }
          }
          os.close();
