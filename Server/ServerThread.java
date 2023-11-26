@@ -29,13 +29,14 @@ import java.io.*;
            try {
              if (p.checkVictory(Integer.parseInt(userInput))) {
                os.writeBytes("Hai indovinato il numero!");
+               os.flush();
                break;
              }
              else {
                os.writeBytes("\nRitenta!\n");
              }
            }
-           catch (Exception e) {
+           catch (NumberFormatException e) {
              os.writeBytes("Numero non valido!");
            }
          }

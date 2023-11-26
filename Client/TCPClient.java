@@ -3,7 +3,7 @@ import java.net.*;
 import java.io.*; 
   
    public class TCPClient { 
-     public void start()throws IOException { 
+     public void start() throws IOException {
        //Connessione della Socket con il Server 
        Socket socket = new Socket("localhost", 7777); 
   
